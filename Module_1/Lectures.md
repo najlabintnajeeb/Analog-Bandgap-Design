@@ -2,7 +2,7 @@
 ## Band Gap Voltage Reference (BGR)
 
 ### Introduction:
-In this lecture,the Band Gap Voltage Reference (BGR), including its purpose, working principle, components, and applications were discussed.
+In this lecture, the Band Gap Voltage Reference (BGR), including its purpose,working principle, components, and applications, is discussed.
 
 #### Overview of the Band Gap Voltage Reference:
 - A band gap voltage reference provides a stable reference voltage that remains constant over temperature variations.
@@ -19,8 +19,7 @@ Alternative voltage reference options include:
         * Requires additional components for operation.
         * Higher thermal noise.
         * Low-voltage ICs may not be available.
-Solution to all these is BGR which can be integrated :
-Can be easily integrated in bulk CMOS, bi CMOS and bi polar technologies without external components.
+The solution to these limitations is the Band Gap Reference (BGR), which can be integrated in bulk CMOS, bi CMOS and bi polar technologies without external components.
 
 #### Applications of BandGap Voltage Reference:
 
@@ -130,12 +129,11 @@ Thus, **PNP BJTs are commonly used** to generate CTAT voltages in band gap refer
 ##### 1. The Circuit Diagram (Top Left)
 
 The diagram shows a simple BJT circuit configuration:
-V<sub>DD</sub>: The supply voltage.
+- **V<sub>DD</sub>**: Supply voltage  
+- **I<sub>O</sub>**: Constant current source supplying collector current  
+- **Q1**: Diode-connected BJT (base and collector tied)  
+- **V<sub>CTAT</sub>**: Base-emitter voltage (V<sub>BE</sub>)
 
-I<sub>O</sub> A constant current source that supplies the collector current to the transistor.
-
-Q1 : A Bipolar Junction Transistor (BJT) connected as a diode-connected transistor (base and collector are tied together).
-V<sub>CTAT</sub>: The voltage across the diode-connected BJT, which is the base-emitter voltage (V<sub>BE</sub>). This voltage is often referred to as V<sub>CTAT</sub> because it exhibits a Complementary to Absolute Temperature characteristic.
 Function: This circuit generates a voltage V<sub>CTAT</sub> that decreases linearly as the temperature increases.
 
 ###### 2. The Graph (Top Center)
