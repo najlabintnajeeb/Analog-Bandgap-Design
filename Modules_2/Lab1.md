@@ -1,37 +1,68 @@
-## Lab 1: 
-Lab 1 is installation and cloning of required files , since we are doing it on cloud , codespace we dont need to install anything , eveerthy ing is readu to use already .
-#### Step 1 – Open the Codespace
-- Go to the GitHub repository: https://github.com/vsdip/vsd-bandgap
-- Click “Code” → “Open with Codespaces” to launch the environment directly in your browser.
-<img width="450" height="356" alt="Screenshot 2025-12-15 at 1 51 07 pm" src="https://github.com/user-attachments/assets/331f46c1-c469-42fc-bcd8-512d6f48601d" />
-#### Step 2: option 1:
-Once the Codespace opens, go to the TERMINAL tab and run:
-```
-magic
-```
-or
-```
-ngspice
-```
-or
-```
-netgen
-```
-<img width="1406" height="754" alt="Screenshot 2025-12-15 at 2 02 23 pm" src="https://github.com/user-attachments/assets/78346f16-2516-4831-90d6-24a680e3d7a7" />
+## Lab Setup
+The lab environment is based on a cloud-hosted GitHub Codespace, which already includes all required tools and libraries. Since the simulation is performed entirely in the cloud, no local installation or manual cloning is required. The environment is preconfigured and ready to use.
 
-<img width="549" height="245" alt="Screenshot 2025-12-15 at 2 08 34 pm" src="https://github.com/user-attachments/assets/e2026f4a-469e-43b6-919e-ece6fe90d0ae" />
+### Step 1 – Open the Codespace
 
-<img width="1399" height="653" alt="Screenshot 2025-12-15 at 2 03 46 pm" src="https://github.com/user-attachments/assets/abbff00d-411a-4bc8-9150-40bc8a17f6ad" />
+Navigate to the GitHub repository: https://github.com/vsdip/vsd-bandgap
 
-##### Option 2 – Use the GUI (noVNC Desktop)
+Click Code → Open with Codespaces to launch the development environment directly in your browser.
 
-In your Codespace, open the PORTS tab.
+<details>
+  <summary><strong>View reference screenshot</strong></summary>
+  
+  <img width="200" height="200" alt="Screenshot 2025-12-15 at 1 51 07 pm" src="https://github.com/user-attachments/assets/331f46c1-c469-42fc-bcd8-512d6f48601d" />
 
-Find the forwarded port named noVNC Desktop (6080).
+</details>
 
-Click the forwarded URL.
+  ### Step 2: Verify Tool Availability
 
-On the web page, select vnc_lite.html to open the XFCE desktop.
+Once the Codespace is fully launched, verify that the required EDA tools are available. This can be done using either the terminal directly or the GUI desktop. 
+
+<details><summary><strong>Option 1 – Using the Terminal</strong></summary>
+
+
+
+1.Open the Terminal tab in the Codespace.
+
+2.Run the following commands to verify tool availability:
+
+```magic```
+
+``` netgen ```
+
+``` ngspice```
+
+If the command launches successfully, it confirms that the corresponding tool is correctly installed and ready for use.
+
+
+
+
+<details>
+  <summary><strong>View reference screenshots</strong></summary>
+
+<img width="500" height="400" alt="Screenshot 2025-12-15 at 2 02 23 pm" src="https://github.com/user-attachments/assets/78346f16-2516-4831-90d6-24a680e3d7a7" />
+
+
+
+<img width="500" height="400" alt="Screenshot 2025-12-15 at 2 08 34 pm" src="https://github.com/user-attachments/assets/e2026f4a-469e-43b6-919e-ece6fe90d0ae" />
+
+
+
+<img width="500" height="400" alt="Screenshot 2025-12-15 at 2 03 46 pm" src="https://github.com/user-attachments/assets/abbff00d-411a-4bc8-9150-40bc8a17f6ad" />
+
+
+</details>
+
+</details>
+<details><summary><strong>Option 2 – Use the GUI (noVNC Desktop):</strong></summary> 
+
+- In your Codespace, open the PORTS tab.
+
+- Find the forwarded port named noVNC Desktop (6080).
+
+- Click the forwarded URL.
+
+- On the web page, select vnc_lite.html to open the XFCE desktop.
 
 Inside the desktop terminal, run:
 ```
@@ -39,30 +70,40 @@ magic
 ngspice
 netgen
 ```
-
+<details>
+  
+  <summary><strong>View reference screenshot</strong></summary>
+  
+  
 <img width="250" height="70" alt="Screenshot 2025-12-15 at 2 10 58 pm" src="https://github.com/user-attachments/assets/4a7d19cf-5782-4397-9b79-b39349009b01" />
+
 
 <img width="250" height="270" alt="Screenshot 2025-12-15 at 1 53 00 pm" src="https://github.com/user-attachments/assets/f7eb800d-d146-4fc5-9572-cf4db688e998" />
 
+</details>
+</details>
 
 ### Project Folder Location
 
-The design files are available under the folder: /workspaces/vsd-bandgap as shown in the image below:
+The design files are available under the folder: ```/workspaces/vsd-bandgap``` 
 
-<img width="818" height="534" alt="Screenshot 2025-12-15 at 2 18 39 pm" src="https://github.com/user-attachments/assets/94792ad4-9eee-4de1-9d7a-b74d344353c2" />
+The directory structure is shown in the screenshot below.
+
+<details> <summary><strong>View reference screenshot</strong></summary> <img width="818" height="534" alt="Project folder structure in Codespace" src="https://github.com/user-attachments/assets/94792ad4-9eee-4de1-9d7a-b74d344353c2" /> </details>
+
 
 SkyWater PDK files are available under the location:
 ``` /opt/pdk/sky130A/ ```
 
 
-
-Lab2:the design specifications, device dataset, and circuit design methodology for the Bandgap Reference (BGR).
+### Lab 2 – Bandgap Reference (BGR) Design
+This lab covers the design specifications, device dataset, and circuit design methodology for the Bandgap Reference (BGR).
 
 ### Design Specifications
-The target specifications for the BGR design are as follows:
+The target specifications for the BGR design are listed below. These specifications guide the design and are verified through simulation.
+
 **Supply Voltage:** Nominal: 1.8 V
-Allowed variation: ±10%
-(2 V operation is also acceptable)
+Allowed variation: ±10% (2 V operation is also acceptable)
 **Operating Temperature Range:** −40 °C to 125 °C (commercial range)
 **Power Consumption:** < 60 µW
 **Off Current** (when the BGR is fully powered ON): < 2 µA
