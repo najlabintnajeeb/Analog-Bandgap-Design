@@ -569,10 +569,10 @@ Current at room temperature (~27°C): 10.8 μA
 </details>
 
 
-### Lab 5: BGR (ideal) design and prelayout simulation
+#### Lab 5: BGR (ideal) design and prelayout simulation
 
 
-BGR circuit using VCVS Opamp
+##### BGR circuit using VCVS Opamp
 
 the complete Bandgap Reference (BGR) circuit using a DC-based ideal op-amp, implemented using a VCVS (Voltage-Controlled Voltage Source). At this stage, we are not including the startup circuit;
 
@@ -582,11 +582,9 @@ The primary objective here is to understand the main reference branch, specifica
 
   ![Unknown](https://github.com/user-attachments/assets/30cba537-7055-4341-a10e-249645db8b80)
 
-
-
 </details>
 
-<details><summary><strong>Explanation</strong></summary>
+<details><summary><strong>The Core Components</strong></summary>
 This image shows a Bandgap Reference (BGR) circuit, which is a common analog block used to generate a stable voltage (Vref) that remains constant despite changes in temperature.
 
 The core idea is to combine two voltages that have opposite temperature coefficients: one that decreases with temperature (CTAT) and one that increases with temperature (PTAT).  
@@ -601,6 +599,8 @@ The core idea is to combine two voltages that have opposite temperature coeffici
 
 Role: Provide equal and stable bias currents to the three BJT branches.
 
+</details>
+
 <details><summary><strong>2.VCVS as Ideal Op-Amp</strong></summary>  
 
 - The triangular block labeled vcvs acts as an ideal operational amplifier:
@@ -610,13 +610,309 @@ Role: Provide equal and stable bias currents to the three BJT branches.
   
 Role: Forces the voltages at its inputs to be equal by adjusting the PMOS gate voltage, thereby setting correct currents.
 
+</details>
+
 <details><summary><strong>3.BJT Branches (Bottom Section)</strong></summary>  
-<details><summary><strong>Q1 (Left Branch)</strong></summary>  
+<summary><strong>Q1 (Left Branch)</strong></summary>  
 
 - Emitter area ratio: Q1 = 1
 - Acts as a diode-connected BJT
 - Produces a CTAT voltage V<sub>BE1</sub>
 - Collector current flows through MP1
 
+<summary><strong>Q2 (Middle Branch)</strong></summary>  
+Emitter area ratio: Q2 = 8
+Connected in series with R1 = 5 kΩ
+Generates a different base–emitter voltage V<sub>BE2</sub>V
+
+​	
+
+
+
+
+
+<summary><strong>Q3 (Right Branch)</strong></summary>  
+
+### Bandgap Reference – PTAT and CTAT Compensation
+
+Q<sub>3</sub> is identical to Q<sub>1</sub>, so it generates a CTAT (Complementary To Absolute Temperature) voltage with the same slope.  
+If left uncompensated, this CTAT voltage would **decrease with temperature**.
+
+To cancel this slope, we add a **positive PTAT voltage** across resistor R<sub>2</sub>.
+
+#### Resistor Scaling
+
+The PTAT voltage across R<sub>1</sub> is small and must be amplified using a resistor ratio.  
+From theory, the required multiplication factor (α) is approximately 9. Hence:
+
+- R<sub>1</sub> = 5 kΩ  
+- R<sub>2</sub> = 45 kΩ
+
+This ensures the reference voltage is:
+
+V<sub>REF</sub> = V<sub>BE</sub> + α · ΔV<sub>BE</sub>
+
+By combining the PTAT and CTAT components in this way, their temperature slopes **cancel each other**, producing a **temperature-independent reference voltage**.
+
+  
 </details>
+</details>
+<details><summary><strong>Working principle</strong></summary>  
+  
+  **Step 1 : Generation of PTAT Current**
+
+
+Because the op-amp enforces  
+V<sub>qp1</sub> = V<sub>ra1</sub>, the voltage drop across resistor R<sub>1</sub> equals the difference between the base–emitter voltages of transistors Q<sub>1</sub> and Q<sub>2</sub>.
+
+
+ΔV<sub>BE</sub> = V<sub>BE1</sub> − V<sub>BE2</sub>
+
+The expression for the base–emitter voltage difference is given by:
+
+ΔV<sub>BE</sub> = V<sub>T</sub> · ln(N)
+
+where V<sub>T</sub> = kT / q is the thermal voltage, and N represents the emitter area ratio of the BJTs (N = 8 in this design).
+
+Since the thermal voltage V<sub>T</sub> increases linearly with absolute temperature, ΔV<sub>BE</sub> exhibits PTAT (Proportional To Absolute Temperature) behavior.
+
+The resulting PTAT current flowing through the middle branch is therefore:
+
+I = ΔV<sub>BE</sub> / R<sub>1</sub>
+
+This current:
+Increases linearly with temperature
+Is mirrored into the right branch via MP3
+
+
+
+
+**Step 2.Generation of Vref**
+
+### Bandgap Reference – PTAT and CTAT Compensation
+
+Q<sub>3</sub> is identical to Q<sub>1</sub>, so it generates a CTAT (Complementary To Absolute Temperature) voltage with the same slope.  
+If left uncompensated, this CTAT voltage would **decrease with temperature**.
+
+To cancel this slope, we add a **positive PTAT voltage** across resistor R<sub>2</sub>.
+
+#### Resistor Scaling
+
+The PTAT voltage across R<sub>1</sub> is small and must be amplified using a resistor ratio.  
+From theory, the required multiplication factor (α) is approximately 9. Hence:
+
+- R<sub>1</sub> = 5 kΩ  
+- R<sub>2</sub> = 45 kΩ
+
+This ensures the reference voltage is:
+
+V<sub>REF</sub> = V<sub>BE</sub> + α · ΔV<sub>BE</sub>
+
+By combining the PTAT and CTAT components in this way, their temperature slopes **cancel each other**, producing a **temperature-independent reference voltage**.
+
+
+</details>
+
+<details><summary><strong>Simulation</strong></summary>
+
+<details><summary><strong>1.Setup</strong></summary>
+
+- Ideal op-amp implemented using VCV
+- PMOS transistors: L = 2 µm, W = 5 µm, M = 4
+- BJTs:
+Q1 = 1 unit
+Q2 = 8 units
+Q3 = 1 unit
+- Designed for 10 µA per branch
+- Supply voltage: can be 1.2 V, 1.8 V, or 2 V
+- Temperature sweep: –40°C to 125°C, step size 5°C
+- Zero-voltage sources (VID1, VID2, VID3) used to measure branch currents
+
+
+
+</details>
+
+<details><summary><strong>2. Netlist file</summary>
+
+File: ```bgr_using_ideal_opamp.sp ```
+
+
+```bash
+**** bgr using ideal opamp (vcvs) *****
+
+.lib "/opt/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt"
+
+.global vdd gnd
+.temp 27
+
+*** vcvs definition
+e1 net2 gnd ra1 qp1 gain=1000
+
+
+xmp1    q1      net2    vdd     vdd     sky130_fd_pr__pfet_01v8_lvt     l=2     w=5     m=4
+xmp2    q2      net2    vdd     vdd     sky130_fd_pr__pfet_01v8_lvt     l=2     w=5     m=4
+xmp3    q3      net2    vdd     vdd     sky130_fd_pr__pfet_01v8_lvt     l=2     w=5     m=4
+
+*** bjt definition
+xqp1    gnd     gnd     qp1             sky130_fd_pr__pnp_05v5_W3p40L3p40       m=1
+xqp2    gnd     gnd     qp2          sky130_fd_pr__pnp_05v5_W3p40L3p40       m=8
+xqp3    gnd     gnd     qp3          sky130_fd_pr__pnp_05v5_W3p40L3p40       m=1
+
+*** high-poly resistance definition
+xra1    ra1     na1     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xra2    na1     na2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xra3    na2     qp2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xra4    na2     qp2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+
+xrb1    ref     nb1     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb2    nb1     nb2     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb3    nb2     nb3     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb4    nb3     nb4     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb5    nb4     nb5     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb6    nb5     nb6     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb7    nb6     nb7     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb8    nb7     nb8     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb9    nb8     nb9     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb10   nb9     nb10    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb11   nb10    nb11    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb12   nb11    nb12    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb13   nb12    nb13    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb14   nb13    nb14    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb15   nb14    nb15    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb16   nb15    nb16    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb17   nb16    nb17    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb18   nb17    nb18    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb19   nb18    nb19    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb20   nb19    nb20    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41        l=7.8
+xrb21   nb20    nb21    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb22   nb21    nb22    vdd     sky130_fd_pr__res_high_po_1p41     w=1.41        l=7.8
+xrb23   nb22    qp3     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+xrb24   nb22    qp3     vdd     sky130_fd_pr__res_high_po_1p41     w=1.41       l=7.8
+
+*** voltage source for current measurement
+
+vid1    q1      qp1     dc      0
+vid2    q2      ra1     dc      0
+vid3    q3      ref     dc      0
+
+*** supply voltage
+vsup    vdd     gnd     dc      2
+*.dc    vsup    0       3.3     0.3.3
+
+.dc     temp    -40     125     5
+
+*vsup    vdd     gnd     pulse   0       2       10n     1u      1u      1m      100u
+*.tran   5n      10u
+
+.control
+RUN
+plot v(vdd) v(qp1) v(ra1) v(qp2) v(ref) v(qp3)
+plot v(ref)
+
+
+.endc
+.end
+
+```
+
+
+
+
+<details><summary>3. Component details</summary>
+  
+| Component / Command       | SPICE Example                                                                 | Function / Purpose                                                | Syntax / Format |
+|---------------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------|----------------|
+| **VCVS (ideal op-amp)**   | `e1 net2 gnd ra1 qp1 gain=1000`                                              | Amplifies voltage difference between `ra1` and `qp1`. Output at `net2`. | `Ename Nout+ Nout- NC+ NC- gain=Value` |
+| **PMOS transistor**       | `xmp1 q1 net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt l=2 w=5 m=4`<br>`xmp2 q2 net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt l=2 w=5 m=4`<br>`xmp3 q3 net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt l=2 w=5 m=4` | Forms current mirrors to bias BJTs. Output nodes `q1`, `q2`, `q3`. | `Xname Drain Gate Source Bulk ModelName [Parameters]` |
+| **PNP transistor**        | `xqp1 gnd gnd qp1 sky130_fd_pr__pnp_05v5_W3p40L3p40 m=1`<br>`xqp2 gnd gnd qp2 sky130_fd_pr__pnp_05v5_W3p40L3p40 m=8`<br>`xqp3 gnd gnd qp3 sky130_fd_pr__pnp_05v5_W3p40L3p40 m=1` | Generates CTAT voltage (`Vbe`). Collector/Emitter/Base connections follow Sky130 PNP convention. | `Xname Collector Emitter Base ModelName [Multiplier]` |
+| **High-poly resistor**    | `xra1 ra1 na1 vdd sky130_fd_pr__res_high_po_1p41 w=1.41 l=7.8`<br>`xrb1 ref nb1 vdd sky130_fd_pr__res_high_po_1p41 w=1.41 l=7.8` | Scales PTAT voltage to match CTAT voltage and sets ratios.       | `Rname Node1 Node2 Value` |
+| **Voltage source (supply)** | `vsup vdd gnd dc 2`                                                        | Provides 2 V supply.                                             | `Vname Node+ Node- [DC/AC/PULSE] Value` |
+| **Voltage sources (current measurement)** | `vid1 q1 qp1 dc 0`<br>`vid2 q2 ra1 dc 0`<br>`vid3 q3 ref dc 0` | Inserts 0 V sources to measure branch currents. Currents read via `I(vid1)` etc. | `Vname Node+ Node- dc 0` |
+| **Temperature sweep**     | `.dc temp -40 125 5`                                                         | Sweeps simulation over temperature range -40°C to 125°C.         | `.dc temp Start Stop Step` |
+| **DC operating point sweep** | `.dc vsup 0 3.3 0.3`                                                       | Sweeps supply voltage to observe operating points.               | `.dc Vsource Start Stop Step` |
+| **Transient analysis**    | `.tran 5n 10u`                                                               | Time-domain simulation to observe dynamic response.              | `.tran Tstep Tstop [Tstart [Tmax]]` |
+| **Plotting node voltages**| `plot v(vdd) v(qp1) v(ra1) v(qp2) v(ref) v(qp3)`<br>`plot v(ref)`           | Visualizes node voltages and reference output.                   | `plot v(Node1) v(Node2) ...` |
+
+
+</details>
+
+</details>
+
+
+<details><summary><strong>Simulation Results and Verification</strong></summary>
+
+<strong>1.Reference Voltage (VREF)</strong>
+
+```ngspice 9 -> plot v(ref)```
+
+<img width="400" height="400" alt="Screenshot 2025-12-17 at 2 10 44 pm" src="https://github.com/user-attachments/assets/30047208-a87a-46dc-b5c2-c49f7f6ab955" />
+
+
+<strong>2. Op-Amp Action Verification></strong>
+
+```ngspice 10 -> plot v(qp1) v(ra1) ```
+
+<img width="400" height="400" alt="Screenshot 2025-12-17 at 2 19 56 pm" src="https://github.com/user-attachments/assets/d99b648e-0db9-430d-900a-c05a9b966da3" />
+
+
+- Voltages at the op-amp input nodes are identical
+
+  ```ngspice 20 -> plot vid1#branch vid2#branch```
+  
+  - Branch currents are also equal
+  - Confirms proper operation of the ideal op-amp and current mirrors
+  
+<img width="400" height="400" alt="Screenshot 2025-12-17 at 3 17 50 pm" src="https://github.com/user-attachments/assets/b98606d3-a366-4deb-a616-85f0d2e52cee" />
+
+  
+<strong> 3. CTAT and PTAT Slope Cancellation>/strong>
+
+The voltage at q<sub>p3</sub> shows a CTAT (Complementary To Absolute Temperature) 
+slope:≈ −1.638 mV/°C
+
+
+<img width="400" height="400" alt="Screenshot 2025-12-17 at 2 49 00 pm" src="https://github.com/user-attachments/assets/fbde745d-18ae-47f5-a0fa-6ce2e49cc047" />
+
+
+The difference between the reference voltage and q<sub>p3</sub> voltage is:   v<sub>ref</sub> − v<sub>qp3</sub>
+
+
+```bash
+x0 = -23.2653, y0 = 0.410145    x1 = 113.061, y1 = 0.636232
+dx = 136.327, dy = 0.226087
+dy/dx = 0.00165842    dx/dy = 602.983shows a PTAT slope: ≈ +1.65 mV/°C
+
+```
+
+Slopes approximately match in magnitude and cancels.
+
+<img width="400" height="400" alt="Screenshot 2025-12-17 at 3 44 24 pm" src="https://github.com/user-attachments/assets/5822be75-bde7-479f-baac-f4d6a1277145" />
+
+
+<strong>5. PTAT Scaling Verification</strong>
+
+The small ptat voltage across ra<sub>1</sub> is amplified using the resistor ratio α ≈ 9:
+
+``` plot v(ra1)-v(qp2) ```
+
+
+<img width="400" height="400" alt="Screenshot 2025-12-17 at 3 49 57 pm" src="https://github.com/user-attachments/assets/9f7e46ad-99d2-4f8f-9a7a-74743a2f107d" />
+
+
+
+```
+x0 = 109.091, y0 = 0.0716429    x1 = 3.83838, y1 = 0.0518571
+dx = -105.253, dy = -0.0197857
+dy/dx = 0.000187983    dx/dy = 5319.62
+
+```
+
+- Voltage across R1 has a slope ≈ 187 µV/°C
+- Δv<sub>ptat, amplified</sub> = 187 μv/°c × 9 ≈ 1.68 mv/°c
+- Confirms correct PTAT amplification by R2
+- this amplified ptat voltage cancels the ctat slope of q<sub>p3</sub>, ensuring a temperature-independent reference voltage.
+
+
+</details>
+
 
