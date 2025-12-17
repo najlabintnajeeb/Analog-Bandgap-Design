@@ -40,15 +40,15 @@ If the command launches successfully, it confirms that the corresponding tool is
 <details>
   <summary><strong>View reference screenshots</strong></summary>
 
-<img width="500" height="400" alt="Screenshot 2025-12-15 at 2 02 23 pm" src="https://github.com/user-attachments/assets/78346f16-2516-4831-90d6-24a680e3d7a7" />
+<img width="400" height="400" alt="Screenshot 2025-12-15 at 2 02 23 pm" src="https://github.com/user-attachments/assets/78346f16-2516-4831-90d6-24a680e3d7a7" />
 
 
 
-<img width="500" height="400" alt="Screenshot 2025-12-15 at 2 08 34 pm" src="https://github.com/user-attachments/assets/e2026f4a-469e-43b6-919e-ece6fe90d0ae" />
+<img width="400" height="400" alt="Screenshot 2025-12-15 at 2 08 34 pm" src="https://github.com/user-attachments/assets/e2026f4a-469e-43b6-919e-ece6fe90d0ae" />
 
 
 
-<img width="500" height="400" alt="Screenshot 2025-12-15 at 2 03 46 pm" src="https://github.com/user-attachments/assets/abbff00d-411a-4bc8-9150-40bc8a17f6ad" />
+<img width="400" height="400" alt="Screenshot 2025-12-15 at 2 03 46 pm" src="https://github.com/user-attachments/assets/abbff00d-411a-4bc8-9150-40bc8a17f6ad" />
 
 
 </details>
@@ -116,9 +116,9 @@ These specifications are targeted and verified during the design process.
 ### Device Datasheets
 
 <details> <summary><strong>MOSFET</strong></summary>
-<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/35556d93-1541-44a1-941a-8322fc7e0221" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/35556d93-1541-44a1-941a-8322fc7e0221" />
 
-<img width="953" height="73" alt="MOSFET Parameters" src="https://github.com/user-attachments/assets/b47b0788-8c2a-4fa7-a9da-63f2f8309dd2" />
+<img width="400" height="73" alt="MOSFET Parameters" src="https://github.com/user-attachments/assets/b47b0788-8c2a-4fa7-a9da-63f2f8309dd2" />
 Two types of MOSFETs are used:
 - NMOS (NFET)
 - PMOS (PFET)
@@ -142,7 +142,7 @@ sky130_fd_pr__pfet_01v8_lvt
 </details>
 
 <details> <summary><strong>BJT</strong></summary>
-<img width="1729" height="515" alt="image" src="https://github.com/user-attachments/assets/681f6819-f955-4e4b-b3bc-d4fee1272c4a" />
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/681f6819-f955-4e4b-b3bc-d4fee1272c4a" />
 
 
   
@@ -163,7 +163,7 @@ Not used due to limited current handling
 </details>
 
 <details> <summary><strong>Resistor</strong></summary>
-<img width="1879" height="556" alt="image" src="https://github.com/user-attachments/assets/99f14b9f-05a0-47d4-97de-88880846ed7b" />
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/99f14b9f-05a0-47d4-97de-88880846ed7b" />
 
 Type: Semiconductor resistor
 Nominal Resistance: ~350 Ω
@@ -265,7 +265,7 @@ BJT in diode-connected mode (preferred approach)
 In this lab, a BJT-based CTAT circuit is used.
 
 circuit diagram with expected waveforms:
-<img width="676" height="384" alt="Screenshot 2025-12-16 at 11 26 19 am" src="https://github.com/user-attachments/assets/1f60f9fd-6043-4e28-972d-d144af3b2885" />
+<img width="400" height="300" alt="Screenshot 2025-12-16 at 11 26 19 am" src="https://github.com/user-attachments/assets/1f60f9fd-6043-4e28-972d-d144af3b2885" />
 
 
 
@@ -298,7 +298,7 @@ This netlist implements a CTAT (Complementary to Absolute Temperature) voltage g
 
 **Screenshot of the netlist:**
 
-<img width="685" height="309" alt="Screenshot 2025-12-16 at 10 27 17 am" src="https://github.com/user-attachments/assets/b713dd13-20f9-4f70-b2f6-1a3941898547" />
+<img width="400" height="300" alt="Screenshot 2025-12-16 at 10 27 17 am" src="https://github.com/user-attachments/assets/b713dd13-20f9-4f70-b2f6-1a3941898547" />
 
 
 #### Simulation
@@ -307,7 +307,7 @@ Command used:
 
 Observed Error:
 
-<img width="818" height="450" alt="Screenshot 2025-12-16 at 9 25 42 am" src="https://github.com/user-attachments/assets/72d25721-b336-4182-80fb-1105830149d4" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 9 25 42 am" src="https://github.com/user-attachments/assets/72d25721-b336-4182-80fb-1105830149d4" />
 
 **Analysis of the Error**
 
@@ -316,7 +316,7 @@ Observed Error:
 Original line:
 ``` xqp1 gnd gnd qp1 gnd sky130_fd_pr__pnp_05v5_W3p40L3p40 m=1 ```
 
-<img width="679" height="342" alt="Screenshot 2025-12-16 at 9 26 25 am" src="https://github.com/user-attachments/assets/94495d02-34e3-4910-8f57-d5ee66c58412" />
+<img width="400" height="300" alt="Screenshot 2025-12-16 at 9 26 25 am" src="https://github.com/user-attachments/assets/94495d02-34e3-4910-8f57-d5ee66c58412" />
 
 
 - Issue identified:
@@ -326,7 +326,7 @@ Original line:
 The Sky130 PNP models are fixed-geometry subcircuits with internal parameters and exactly three pins:
 ```.subckt sky130_fd_pr__pnp_05v5_W3p40L3p40 Collector Base Emitter```
 
-<img width="922" height="517" alt="Screenshot 2025-12-16 at 9 44 31 am" src="https://github.com/user-attachments/assets/0d4f1952-5087-4a4b-a916-b37ce6fe5702" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 9 44 31 am" src="https://github.com/user-attachments/assets/0d4f1952-5087-4a4b-a916-b37ce6fe5702" />
 
 Ngspice detects the extra parameters/nodes and raises the "Too many parameters" error.
 
@@ -335,24 +335,24 @@ Ngspice detects the extra parameters/nodes and raises the "Too many parameters" 
 - SkyWater Sky130 PDK documentation
 - /opt/pdk/sky130A/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__pnp_05v5_W3p40L3p40.model.spice
   
-<img width="897" height="298" alt="Screenshot 2025-12-16 at 9 45 37 am" src="https://github.com/user-attachments/assets/96857298-fca3-49a1-a0ab-4018cb6100f9" />
+<img width="400" height="298" alt="Screenshot 2025-12-16 at 9 45 37 am" src="https://github.com/user-attachments/assets/96857298-fca3-49a1-a0ab-4018cb6100f9" />
 
 **Solution Implemented**
 Corrected instance in the netlist:
 
 ```xqp1 qp1 qp1 gnd sky130_fd_pr__pnp_05v5_w3p40l3p40```
 
-<img width="881" height="329" alt="Screenshot 2025-12-16 at 9 46 58 am" src="https://github.com/user-attachments/assets/dea2c7ea-1d99-43a8-b07a-3708030a46b4" />
+<img width="400" height="329" alt="Screenshot 2025-12-16 at 9 46 58 am" src="https://github.com/user-attachments/assets/dea2c7ea-1d99-43a8-b07a-3708030a46b4" />
 
 **Simulation After Fix**
 
-<img width="881" height="329" alt="Screenshot 2025-12-16 at 9 46 58 am" src="https://github.com/user-attachments/assets/f2d4aeb0-185d-4c8d-946e-9feb66f2cb56" />
+<img width="400" height="329" alt="Screenshot 2025-12-16 at 9 46 58 am" src="https://github.com/user-attachments/assets/f2d4aeb0-185d-4c8d-946e-9feb66f2cb56" />
 
-<img width="700" height="541" alt="Screenshot 2025-12-16 at 10 40 30 am" src="https://github.com/user-attachments/assets/1cc3575a-6747-4e7f-badb-3a6b2bd222b3" />
+<img width="400" height="541" alt="Screenshot 2025-12-16 at 10 40 30 am" src="https://github.com/user-attachments/assets/1cc3575a-6747-4e7f-badb-3a6b2bd222b3" />
 
 slope value :
 
-<img width="544" height="71" alt="Screenshot 2025-12-16 at 10 41 21 am" src="https://github.com/user-attachments/assets/150ebd2f-2c15-4152-92d0-2ab551cef7a6" />
+<img width="400" height="71" alt="Screenshot 2025-12-16 at 10 41 21 am" src="https://github.com/user-attachments/assets/150ebd2f-2c15-4152-92d0-2ab551cef7a6" />
 
 Observed slope: **-1.725 mV/°C**
 
@@ -368,21 +368,21 @@ File:
 
 netlist file :
 
-<img width="752" height="323" alt="Screenshot 2025-12-16 at 10 55 30 am" src="https://github.com/user-attachments/assets/9dc3fad4-ab5a-4fba-8c9c-d8bf6ff3b9c1" />
+<img width="400" height="323" alt="Screenshot 2025-12-16 at 10 55 30 am" src="https://github.com/user-attachments/assets/9dc3fad4-ab5a-4fba-8c9c-d8bf6ff3b9c1" />
 
 simulation:
 ```ngspice ctat_voltage_gen_mul_bjt.sp```
 
-<img width="772" height="342" alt="Screenshot 2025-12-16 at 11 03 30 am" src="https://github.com/user-attachments/assets/2d57f2d3-5a86-4e8c-9b33-006442fbbbf1" />
+<img width="400" height="342" alt="Screenshot 2025-12-16 at 11 03 30 am" src="https://github.com/user-attachments/assets/2d57f2d3-5a86-4e8c-9b33-006442fbbbf1" />
 
 
 output /slope calculation:
 
-<img width="702" height="541" alt="Screenshot 2025-12-16 at 11 03 42 am" src="https://github.com/user-attachments/assets/c3d40a21-fc30-44cb-969c-e3b3c23d5dbe" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 11 03 42 am" src="https://github.com/user-attachments/assets/c3d40a21-fc30-44cb-969c-e3b3c23d5dbe" />
 
 Slope: 
 
-<img width="574" height="185" alt="Screenshot 2025-12-16 at 11 05 03 am" src="https://github.com/user-attachments/assets/2307f14b-46c7-48bf-9f4d-2c15c4e0c428" />
+<img width="400" height="185" alt="Screenshot 2025-12-16 at 11 05 03 am" src="https://github.com/user-attachments/assets/2307f14b-46c7-48bf-9f4d-2c15c4e0c428" />
 
 Observed slope: **-1.9124 mV/°C**
 
@@ -396,21 +396,21 @@ File:
 ```ctat_voltage_gen_var_current.sp``
 
 netlist file :
-<img width="753" height="310" alt="Screenshot 2025-12-16 at 10 56 14 am" src="https://github.com/user-attachments/assets/fc40ad65-94bb-4e6b-938e-06c845c0b4fa" />
+<img width="400" height="310" alt="Screenshot 2025-12-16 at 10 56 14 am" src="https://github.com/user-attachments/assets/fc40ad65-94bb-4e6b-938e-06c845c0b4fa" />
 
 
 simulation:
 ```ctat_voltage_gen_var_current.sp``
-<img width="790" height="344" alt="Screenshot 2025-12-16 at 11 15 02 am" src="https://github.com/user-attachments/assets/656c63d5-3212-4bea-9e23-9d7a224a79ab" />
+<img width="400" height="344" alt="Screenshot 2025-12-16 at 11 15 02 am" src="https://github.com/user-attachments/assets/656c63d5-3212-4bea-9e23-9d7a224a79ab" />
 
 
 
 output /slope calculation:
 
-<img width="705" height="539" alt="Screenshot 2025-12-16 at 11 15 19 am" src="https://github.com/user-attachments/assets/2b7f3be8-81de-475a-9756-4102537beb28" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 11 15 19 am" src="https://github.com/user-attachments/assets/2b7f3be8-81de-475a-9756-4102537beb28" />
 
 Slope: 
-<img width="503" height="117" alt="Screenshot 2025-12-16 at 11 23 17 am" src="https://github.com/user-attachments/assets/64ff8ed7-78ff-4b8f-ae8e-c09eba97bc3f" />
+<img width="400" height="117" alt="Screenshot 2025-12-16 at 11 23 17 am" src="https://github.com/user-attachments/assets/64ff8ed7-78ff-4b8f-ae8e-c09eba97bc3f" />
 
 Observed slope range: -1.894 mV/°C (1.25 μA) to -1.704 mV/°C (10 μA)
 Notes: Slope varies with current, highlighting design considerations for PTAT circuits.
@@ -437,7 +437,7 @@ The PTAT voltage increases with temperature and is generated using CTAT voltage 
 
 **Circuit Diagram:**  
 
-<img width="468" height="274" alt="Screenshot 2025-12-16 at 11 54 16 am" src="https://github.com/user-attachments/assets/f13ac7a9-0ebf-42f4-a611-361cd3c98fca" />
+<img width="400" height="274" alt="Screenshot 2025-12-16 at 11 54 16 am" src="https://github.com/user-attachments/assets/f13ac7a9-0ebf-42f4-a611-361cd3c98fca" />
 
 </details>
 
@@ -496,7 +496,7 @@ plot vid1#branch vid2#branch
 ngspice ./ptat_voltage_gen.sp
 ```
   
-  <img width="728" height="377" alt="Screenshot 2025-12-16 at 12 59 53 pm" src="https://github.com/user-attachments/assets/7ad093ef-6f4a-4e92-8030-8e4d2ac9b2f7" />
+  <img width="400" height="377" alt="Screenshot 2025-12-16 at 12 59 53 pm" src="https://github.com/user-attachments/assets/7ad093ef-6f4a-4e92-8030-8e4d2ac9b2f7" />
 
 </details>
 
@@ -514,11 +514,11 @@ We first examined the voltages at key nodes, v(qp1) and v(ra1), which are expect
 
 <strong>Result:</strong> The plots for v(qp1) and v(ra1) are exactly the same.
 
-<img width="450" height="450" alt="Screenshot 2025-12-16 at 1 08 53 pm" src="https://github.com/user-attachments/assets/345c6e8a-8c39-42a0-a3ea-27ba43389e08" />
+<img width="400" height="450" alt="Screenshot 2025-12-16 at 1 08 53 pm" src="https://github.com/user-attachments/assets/345c6e8a-8c39-42a0-a3ea-27ba43389e08" />
 
 <strong>Slope Measurement (CTAT Nature):</strong> The measured slope for both nodes is approximately −1.61 mV/∘C. This confirms the expected CTAT behavior.
 
-<img width="700" height="400" alt="Screenshot 2025-12-16 at 1 18 05 pm" src="https://github.com/user-attachments/assets/381f85d3-c1b7-4b9b-a248-aac30ba6ed0f" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 1 18 05 pm" src="https://github.com/user-attachments/assets/381f85d3-c1b7-4b9b-a248-aac30ba6ed0f" />
 
 
 <strong>2.Generating the PTAT Voltage</strong>
@@ -529,7 +529,7 @@ The PTAT voltage is generated by taking the difference between two CTAT-like nod
 
 <strong>Result:</strong> The plot of v(qp2) (red) shows a steeper negative slope than v(ra1) (blue).
 
-<img width="611" height="520" alt="Screenshot 2025-12-16 at 1 25 31 pm" src="https://github.com/user-attachments/assets/be8db0f0-aba1-4424-aa51-989371fe0f50" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 1 25 31 pm" src="https://github.com/user-attachments/assets/be8db0f0-aba1-4424-aa51-989371fe0f50" />
 
 
 <strong>PTAT Voltage Calculation: </strong>
@@ -540,15 +540,15 @@ The PTAT voltage, V_PTAT, is generated by subtracting the voltage with the stron
 <strong>Plot:</strong> ```plot v(ra1) - v(qp2)``` 
 <strong>Result:</strong> 
 
-<img width="500" height="500" alt="Screenshot 2025-12-16 at 1 32 51 pm" src="https://github.com/user-attachments/assets/4c166355-bdd0-43fb-84e8-8ed0ce9cd5ee" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 1 32 51 pm" src="https://github.com/user-attachments/assets/4c166355-bdd0-43fb-84e8-8ed0ce9cd5ee" />
 
 The plot clearly shows a voltage that is slowly increasing with temperature, which is the definition of a PTAT voltage.
 
 <strong>Slope Measurement (CTAT Nature):</strong>
 
-<img width="696" height="539" alt="Screenshot 2025-12-16 at 1 42 22 pm" src="https://github.com/user-attachments/assets/ed1c5d38-7500-41e3-baa3-bc59fefd8f8c" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 1 42 22 pm" src="https://github.com/user-attachments/assets/ed1c5d38-7500-41e3-baa3-bc59fefd8f8c" />
 
-<img width="513" height="66" alt="Screenshot 2025-12-16 at 1 42 12 pm" src="https://github.com/user-attachments/assets/2f022b01-6c8a-40e2-8f60-fd7eb401ab64" />
+<img width="400" height="66" alt="Screenshot 2025-12-16 at 1 42 12 pm" src="https://github.com/user-attachments/assets/2f022b01-6c8a-40e2-8f60-fd7eb401ab64" />
 
 The measured slope is approximately : 188 μV/°C
 Confirms proportional increase with temperature.
@@ -563,7 +563,7 @@ To verify the DC-based circuit operation, the currents in the two respective bra
 <strong>Result:</strong> The two plots are overlapped, confirming that the currents in both branches are identical as expected in this topology.
 Current at room temperature (~27°C): 10.8 μA
 
-<img width="704" height="695" alt="Screenshot 2025-12-16 at 3 22 05 pm" src="https://github.com/user-attachments/assets/ecd7d268-c9a0-4668-9f3c-4120cbb081dd" />
+<img width="400" height="400" alt="Screenshot 2025-12-16 at 3 22 05 pm" src="https://github.com/user-attachments/assets/ecd7d268-c9a0-4668-9f3c-4120cbb081dd" />
 
 
 </details>
@@ -574,10 +574,7 @@ Current at room temperature (~27°C): 10.8 μA
 
 ##### BGR circuit using VCVS Opamp
 
-the complete Bandgap Reference (BGR) circuit using a DC-based ideal op-amp, implemented using a VCVS (Voltage-Controlled Voltage Source). At this stage, we are not including the startup circuit;
-
-The primary objective here is to understand the main reference branch, specifically the MP3–R2–Q3 branch, and how it is designed to generate a temperature-independent reference voltage.
-
+This lab covers the design of a complete Bandgap Reference (BGR) circuit using an ideal operational amplifier, implemented as a VCVS (Voltage-Controlled Voltage Source). At this stage, the design focuses on the core reference branch (MP3–R2–Q3) to generate a temperature-independent voltage, excluding the startup circuit for initial verification.
 <details><summary><strong>Circuit Diagram </strong></summary>
 
   ![Unknown](https://github.com/user-attachments/assets/30cba537-7055-4341-a10e-249645db8b80)
@@ -585,19 +582,19 @@ The primary objective here is to understand the main reference branch, specifica
 </details>
 
 <details><summary><strong>The Core Components</strong></summary>
-This image shows a Bandgap Reference (BGR) circuit, which is a common analog block used to generate a stable voltage (Vref) that remains constant despite changes in temperature.
-
-The core idea is to combine two voltages that have opposite temperature coefficients: one that decreases with temperature (CTAT) and one that increases with temperature (PTAT).  
+The BGR combines two voltages with opposite temperature coefficients:
+CTAT (Complementary To Absolute Temperature): decreases with temperature, generated by diode-connected BJTs.
+PTAT (Proportional To Absolute Temperature): increases with temperature, generated across resistor R1 due to V<sub>BE</sub> difference.
+By combining these, a temperature-independent reference voltage V<sub>REF</sub> is produced.
 
 <details><summary><strong>1.PMOS Current Mirrors (Top Section: MP1, MP2, MP3)</strong></summary>  
   
-- MP1, MP2, MP3 form matched PMOS current sources.
-- All have identical dimensions:
-- L=2μm,W=5μm,m=4
-- They mirror equal currents I1 = I2 = I3, ensuring consistent biasing.
-- Their gates are tied together at net2, which is controlled by the op-amp (VCVS).
+- MP1, MP2, MP3 Forms matched current sources to bias BJTs.
+- All PMOS devices have identical dimensions: L = 2 µm, W = 5 µm, M = 4.
+- Gates are tied together at net2, controlled by the op-amp output.
+- Ensures equal currents I1 = I2 = I3 for consistent branch biasing.
 
-Role: Provide equal and stable bias currents to the three BJT branches.
+**Role:** Forces input voltages to be equal by adjusting PMOS gates, thereby setting proper branch currents.
 
 </details>
 
@@ -608,11 +605,12 @@ Role: Provide equal and stable bias currents to the three BJT branches.
 - Positive input (+): connected to the middle branch across R1 and Q2
 - Output controls net2, which drives the PMOS gates
   
-Role: Forces the voltages at its inputs to be equal by adjusting the PMOS gate voltage, thereby setting correct currents.
+**Role:** Forces the voltages at its inputs to be equal by adjusting the PMOS gate voltage, thereby setting correct currents.
 
 </details>
 
 <details><summary><strong>3.BJT Branches (Bottom Section)</strong></summary>  
+  
 <summary><strong>Q1 (Left Branch)</strong></summary>  
 
 - Emitter area ratio: Q1 = 1
@@ -621,26 +619,19 @@ Role: Forces the voltages at its inputs to be equal by adjusting the PMOS gate v
 - Collector current flows through MP1
 
 <summary><strong>Q2 (Middle Branch)</strong></summary>  
-Emitter area ratio: Q2 = 8
-Connected in series with R1 = 5 kΩ
-Generates a different base–emitter voltage V<sub>BE2</sub>V
 
-​	
-
-
+- Emitter area ratio: Q2 = 8
+- Connected in series with R1 = 5 kΩ
+- Generates a different base–emitter voltage V<sub>BE2</sub>V
 
 
 
 <summary><strong>Q3 (Right Branch)</strong></summary>  
 
-### Bandgap Reference – PTAT and CTAT Compensation
-
-Q<sub>3</sub> is identical to Q<sub>1</sub>, so it generates a CTAT (Complementary To Absolute Temperature) voltage with the same slope.  
-If left uncompensated, this CTAT voltage would **decrease with temperature**.
-
-To cancel this slope, we add a **positive PTAT voltage** across resistor R<sub>2</sub>.
-
-#### Resistor Scaling
+Identical to Q1
+Generates CTAT voltage (V<sub>BE3</sub>)
+Resistor R2 (ra2) scales PTAT voltage to compensate CTAT, producing temperature-independent V<sub>REF</sub>
+**Resistor Scaling**
 
 The PTAT voltage across R<sub>1</sub> is small and must be amplified using a resistor ratio.  
 From theory, the required multiplication factor (α) is approximately 9. Hence:
@@ -657,6 +648,7 @@ By combining the PTAT and CTAT components in this way, their temperature slopes 
   
 </details>
 </details>
+
 <details><summary><strong>Working principle</strong></summary>  
   
   **Step 1 : Generation of PTAT Current**
