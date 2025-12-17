@@ -569,7 +569,54 @@ Current at room temperature (~27°C): 10.8 μA
 </details>
 
 
+### Lab 5: BGR (ideal) design and prelayout simulation
+
+
+BGR circuit using VCVS Opamp
+
+the complete Bandgap Reference (BGR) circuit using a DC-based ideal op-amp, implemented using a VCVS (Voltage-Controlled Voltage Source). At this stage, we are not including the startup circuit;
+
+The primary objective here is to understand the main reference branch, specifically the MP3–R2–Q3 branch, and how it is designed to generate a temperature-independent reference voltage.
+
+<details><summary><strong>Circuit Diagram </strong></summary>
+
+  ![Unknown](https://github.com/user-attachments/assets/30cba537-7055-4341-a10e-249645db8b80)
 
 
 
+</details>
+
+<details><summary><strong>Explanation</strong></summary>
+This image shows a Bandgap Reference (BGR) circuit, which is a common analog block used to generate a stable voltage (Vref) that remains constant despite changes in temperature.
+
+The core idea is to combine two voltages that have opposite temperature coefficients: one that decreases with temperature (CTAT) and one that increases with temperature (PTAT).  
+
+<details><summary><strong>1.PMOS Current Mirrors (Top Section: MP1, MP2, MP3)</strong></summary>  
+  
+- MP1, MP2, MP3 form matched PMOS current sources.
+- All have identical dimensions:
+- L=2μm,W=5μm,m=4
+- They mirror equal currents I1 = I2 = I3, ensuring consistent biasing.
+- Their gates are tied together at net2, which is controlled by the op-amp (VCVS).
+
+Role: Provide equal and stable bias currents to the three BJT branches.
+
+<details><summary><strong>2.VCVS as Ideal Op-Amp</strong></summary>  
+
+- The triangular block labeled vcvs acts as an ideal operational amplifier:
+- Negative input (–): connected to the left BJT branch (Q1)
+- Positive input (+): connected to the middle branch across R1 and Q2
+- Output controls net2, which drives the PMOS gates
+  
+Role: Forces the voltages at its inputs to be equal by adjusting the PMOS gate voltage, thereby setting correct currents.
+
+<details><summary><strong>3.BJT Branches (Bottom Section)</strong></summary>  
+<details><summary><strong>Q1 (Left Branch)</strong></summary>  
+
+- Emitter area ratio: Q1 = 1
+- Acts as a diode-connected BJT
+- Produces a CTAT voltage V<sub>BE1</sub>
+- Collector current flows through MP1
+
+</details>
 
