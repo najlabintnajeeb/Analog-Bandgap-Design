@@ -89,7 +89,10 @@ The design files are available under the folder: ```/workspaces/vsd-bandgap```
 
 The directory structure is shown in the screenshot below.
 
-<details> <summary><strong>View reference screenshot</strong></summary> <img width="818" height="534" alt="Project folder structure in Codespace" src="https://github.com/user-attachments/assets/94792ad4-9eee-4de1-9d7a-b74d344353c2" /> </details>
+<details> <summary><strong>View reference screenshot</strong></summary> 
+  
+  
+  <img width="500" height="534" alt="Project folder structure in Codespace" src="https://github.com/user-attachments/assets/94792ad4-9eee-4de1-9d7a-b74d344353c2" /> </details>
 
 
 SkyWater PDK files are available under the location:
@@ -116,9 +119,14 @@ These specifications are targeted and verified during the design process.
 ### Device Datasheets
 
 <details> <summary><strong>MOSFET</strong></summary>
+  
 <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/35556d93-1541-44a1-941a-8322fc7e0221" />
 
+<br>
+
 <img width="400" height="73" alt="MOSFET Parameters" src="https://github.com/user-attachments/assets/b47b0788-8c2a-4fa7-a9da-63f2f8309dd2" />
+<br>
+
 Two types of MOSFETs are used:
 - NMOS (NFET)
 - PMOS (PFET)
@@ -253,21 +261,24 @@ Simulation steps:
 
 
 
-Lab 3:
-## CTAT Voltage Generation Lab – Sky130 PDK
+### Lab 3: CTAT Voltage Generation Lab – Sky130 PDK
 
 Objective:
+
 To understand and simulate the Complementary to Absolute Temperature (CTAT) voltage generation circuit as part of the Vizier sub-circuits. CTAT voltage decreases with increasing temperature and is essential for designing PTAT (Proportional to Absolute Temperature) circuits in analog ICs.
 
 CTAT voltage can be generated using:
+
 Diode (less preferred in modern semiconductor design)
 BJT in diode-connected mode (preferred approach)
 In this lab, a BJT-based CTAT circuit is used.
 
 circuit diagram with expected waveforms:
+<br>
+
 <img width="400" height="300" alt="Screenshot 2025-12-16 at 11 26 19 am" src="https://github.com/user-attachments/assets/1f60f9fd-6043-4e28-972d-d144af3b2885" />
 
-
+<br>
 
 Circuit Parameters:
 Constant current source: I₀ = 10 μA
