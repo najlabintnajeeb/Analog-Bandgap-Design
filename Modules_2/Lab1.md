@@ -1065,16 +1065,93 @@ Plots:
 
 
 
+</details>
+
+### Lab 7: Startup circiut 
+
+
+
+
+
+<details><summary><strong>Simulation Results</strong></summary>
+1. VDD and VREF Response
+Plot: ```plot v(vdd) v(vref)```
+  
+<img width="500" height="399" alt="VDD vs VREF" src="https://github.com/user-attachments/assets/2816bad9-a7fc-4205-b5e1-82b2fd0ad0af" />
+
+VDD is ramped from 0 V to 2 V during transient simulation.
+VREF starts rising once the startup circuit becomes active.
+Startup completes at approximately 1 µs, meeting the design specification.
 
 
 
 
 
 
+Plot: plot v(vdd) v(net2) v(net1)
+
+<img width="500" height="542" alt="Net1 and Net2" src="https://github.com/user-attachments/assets/6d73573d-512f-413d-b69d-6d02074734fd" />
+
+After startup:
+Net1 goes high
+Net2 goes low
+This confirms correct biasing of the BGR core after startup.
+
+Zoomed View Around Startup (~1 µs):
+
+<img width="400" height="300" alt="Zoomed Startup" src="https://github.com/user-attachments/assets/d504992a-0c8b-4b7e-9b59-4b731322013b" />
+
+The exact moment of startup completion is clearly visible.
+
+  
+3. Voltage Difference Between Net2 and Net6
+
+Plot: plot v(vdd) v(net2) v(net6)
+
+<img width="699" height="537" alt="Net2 vs Net6" src="https://github.com/user-attachments/assets/5326b6d0-03b4-4cf1-81a6-3485cbb7814d" />
+
+Both Net2 and Net6 initially follow VDD.
+A voltage difference gradually develops between Net2 and Net6.
+When the difference exceeds approximately 0.6 V (V<sub>T</sub>), the startup transistor turns ON.
+This triggers current flow and initiates proper circuit startup.
+After stabilization, the voltage difference ensures correct steady-state operation.
+
+4.Plot: Current in the Startup Branch
+
+```plot vid4#branch```
+
+
+<img width="500" height="500" alt="Screenshot 2025-12-18 at 1 59 09 pm" src="https://github.com/user-attachments/assets/814ce798-f0e6-4381-984a-1ba9a66a0983" />
 
 
 
+- Before 1 μs: ~0.5 μA flows through the startup transistor.
+- After stabilization: current drops to 0, isolating the startup circuit.
 
+```plot vid5#branch```
+
+<img width="701" height="539" alt="Screenshot 2025-12-18 at 2 12 37 pm" src="https://github.com/user-attachments/assets/4955fb8b-a90c-4450-a066-694b31530330" />
+Confirms that post-startup current is minimal.
+
+
+5.Effect of Removing the Startup Circuit
+
+Modification:
+Commented out the mp6 transistor in the netlist.
+
+
+<img width="702" height="536" alt="Screenshot 2025-12-18 at 2 09 15 pm" src="https://github.com/user-attachments/assets/73626dfe-5dce-46c0-a49f-9b50a317bc80" />
+
+Observed Behavior:
+<img width="702" height="536" alt="No Startup Result" src="https://github.com/user-attachments/assets/73626dfe-5dce-46c0-a49f-9b50a317bc80" />
+Net1 remains near ground
+Net2 remains near VDD
+No current flows in the startup path.
+Simulation confirms the circuit fails to start.
+
+
+
+</details>
 
 
 
