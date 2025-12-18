@@ -962,17 +962,22 @@ Simulations are performed in ngspice using the Sky130 PDK to evaluate functional
 
 <img width="698" height="539" alt="Screenshot 2025-12-18 at 12 51 08 pm" src="https://github.com/user-attachments/assets/49f7d6c0-cff9-41c3-adb5-d0d9d63920e4" />
 <br>
+
 **Temperature Coefficient (TC):**
+<br>
 
 <img width="398" height="84" alt="Screenshot 2025-12-18 at 12 51 44 pm" src="https://github.com/user-attachments/assets/be2e3ce8-c4f1-4b14-a59e-841b07206521" />
 
 <br>
 
+
 •	Vmax = 1.109 V
 •	Vmin = 1.105 V
 •	Vnom = 1.107 V
 •	Tmax = 125 °C, Tmin = −40 °C
+
 TC = ((Vmax − Vmin) / (Vnom × (Tmax − Tmin))) × 106 ≈ **22 ppm/°C**
+
 Observation: Umbrella-shaped curve, stable reference voltage.
  
 ##### 2. SS Corner Simulation
