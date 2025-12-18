@@ -923,9 +923,9 @@ dy/dx = 0.000187983    dx/dy = 5319.62
 ### Lab 6: Complete Bandgap Reference (BGR) Design and Pre-Layout Simulation
 
 **Objective:**  
+
 Design and verify a complete CMOS Bandgap Reference (BGR) with startup circuit using Sky130 PDK and evaluate temperature performance through pre-layout simulations.
 
----
 
 <details><summary><strong>Schematic Diagram</strong></summary>
 <br>
@@ -1067,7 +1067,10 @@ Plots:
 
 </details>
 
+---
+
 ### Lab 7: Startup Circuit and Simulation Results
+
 Objective: Observe startup behavior and verify that the circuit reaches a stable state.
 
 **Purpose of the Startup Circuit**
@@ -1174,7 +1177,55 @@ Observed Behavior:
 
 
 
+---
 
+
+
+
+#### Lab 8: Layout of the components
+
+<details><summary><strong> Reference Diagram</strong></summary>
+
+
+
+
+<img width="702" height="456" alt="Screenshot 2025-12-18 at 2 51 49 pm" src="https://github.com/user-attachments/assets/0d89a153-a115-4176-9466-e1d0549eae17" />
+</details>
+
+
+
+
+#### Magic
+
+```magic -T /opt/pdk/sky130A/libs.tech/magic/sky130A.tech ```
+
+
+
+1.Register bank layout
+
+File: ``resbank.mag``
+
+<img width="964" height="628" alt="Screenshot 2025-12-18 at 3 12 24 pm" src="https://github.com/user-attachments/assets/00eb7ca3-0f41-414b-a7f6-3a69d42bf996" />
+
+
+2.  PFETS Layout
+
+<img width="691" height="365" alt="Screenshot 2025-12-18 at 3 37 25 pm" src="https://github.com/user-attachments/assets/a3b2e32f-2a9a-47f4-81bb-a43c976c49ab" />
+
+
+
+3. NFETS Layout
+
+<img width="958" height="630" alt="Screenshot 2025-12-18 at 3 36 23 pm" src="https://github.com/user-attachments/assets/176dac3e-c5be-4a17-9077-4c8a3c0cc9c3" />
+
+
+
+3.  BJT layout
+<img width="953" height="630" alt="Screenshot 2025-12-18 at 3 51 48 pm" src="https://github.com/user-attachments/assets/60524d8c-14d5-4fa4-a9d3-7d8b9cb1b1d2" />
+
+
+---
+---
 
 
 
