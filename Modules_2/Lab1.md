@@ -920,7 +920,7 @@ dy/dx = 0.000187983    dx/dy = 5319.62
 
 </details>
 
-## Lab 6: Complete Bandgap Reference (BGR) Design and Pre-Layout Simulation
+### Lab 6: Complete Bandgap Reference (BGR) Design and Pre-Layout Simulation
 
 **Objective:**  
 Design and verify a complete CMOS Bandgap Reference (BGR) with startup circuit using Sky130 PDK and evaluate temperature performance through pre-layout simulations.
@@ -936,12 +936,15 @@ Design and verify a complete CMOS Bandgap Reference (BGR) with startup circuit u
 <details><summary><strong>Circuit Architecture and Operation</strong></summary>
 
 **Description:**  
+<br>
 
 The BGR uses a self-biased current mirror with a startup circuit. BJTs generate CTAT voltage while the resistor network produces PTAT voltage. Their combination provides a temperature-independent reference. The startup circuit ensures the circuit leaves the zero-current stable state during power-on.
 
 </details>
 
+
 <details><summary><strong>Pre-Layout Simulation Setup</strong></summary>
+
 
 Simulations are performed in **ngspice** using the Sky130 PDK to evaluate functionality, temperature stability, and supply voltage variation.
 
@@ -959,7 +962,7 @@ Simulations are performed in **ngspice** using the Sky130 PDK to evaluate functi
 
 
 <img width="698" height="539" alt="Screenshot 2025-12-18 at 12 51 08 pm" src="https://github.com/user-attachments/assets/49f7d6c0-cff9-41c3-adb5-d0d9d63920e4" />
-
+<
 **Temperature Coefficient (TC):**
 
 <img width="398" height="84" alt="Screenshot 2025-12-18 at 12 51 44 pm" src="https://github.com/user-attachments/assets/be2e3ce8-c4f1-4b14-a59e-841b07206521" />
