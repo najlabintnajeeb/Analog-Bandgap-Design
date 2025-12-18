@@ -1049,9 +1049,11 @@ Observation:
 
 
 
-Spice Netlist:
+## Spice Netlists
 
-1.TT corner 
+### TT Corner Netlist
+<a name="tt-corner-netlist-details"></a>
+
 ```bash
 
 
@@ -1135,7 +1137,7 @@ plot vid1#branch vid2#branch vid3#branch vid4#branch vid5#branch
 
 ```
 
-## Spice Netlists
 
-### TT Corner Netlist
-<a name="tt-corner-netlist-details"></a>
+
+
+
