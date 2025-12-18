@@ -935,8 +935,8 @@ Design and verify a complete CMOS Bandgap Reference (BGR) with startup circuit u
 
 <details><summary><strong>Circuit Architecture and Operation</strong></summary>
 
-**Description:**  
-<br>
+Description:
+
 
 The BGR uses a self-biased current mirror with a startup circuit. BJTs generate CTAT voltage while the resistor network produces PTAT voltage. Their combination provides a temperature-independent reference. The startup circuit ensures the circuit leaves the zero-current stable state during power-on.
 
@@ -946,7 +946,7 @@ The BGR uses a self-biased current mirror with a startup circuit. BJTs generate 
 <details><summary><strong>Pre-Layout Simulation Setup</strong></summary>
 
 
-Simulations are performed in **ngspice** using the Sky130 PDK to evaluate functionality, temperature stability, and supply voltage variation.
+Simulations are performed in ngspice using the Sky130 PDK to evaluate functionality, temperature stability, and supply voltage variation.
 
 ---
 
