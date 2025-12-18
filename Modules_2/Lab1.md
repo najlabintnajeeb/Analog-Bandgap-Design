@@ -1067,56 +1067,75 @@ Plots:
 
 </details>
 
-### Lab 7: Startup circiut 
+### Lab 7: Startup Circuit and Simulation Results
+Objective: Observe startup behavior and verify that the circuit reaches a stable state.
 
+**Purpose of the Startup Circuit**
 
-
+- The startup circuit ensures that current flows in the main path, turning the relevant node off initially, and then stabilizing the circuit.
+- The transistor responsible for initiating current must be strong, which is why we used n = 2 and the same L and W as in MP1, MP2, and MP3. This ensures proper matching in the layout stack.
+- While matching is not critical for this transistor, it helps maintain consistency when used in the stack.
+- Another transistor in the startup loop is intentionally made weak: Connected as two series transistors, increasing L, which reduces current flow after the circuit stabilizes.
+- After stabilization, the node voltage (Net6) becomes high, creating a reverse voltage across this transistor, ensuring it turns completely off.
+- Two diode-connected MOSFETs are used to create the necessary voltage drop: Each drops ~0.8 V, giving a total drop of ~1.6 V.
+- During normal operation, this voltage reduces to ~1.2–1.4 V, keeping the transistor off.
+- The weak transistor ensures only a very small current flows through the startup path once the circuit stabilizes.
 
 
 <details><summary><strong>Simulation Results</strong></summary>
-1. VDD and VREF Response
-Plot: ```plot v(vdd) v(vref)```
+
+
   
+##### 1. VDD and VREF Response
+
+Plot: ```plot v(vdd) v(vref)```
+
+  <br>
 <img width="500" height="399" alt="VDD vs VREF" src="https://github.com/user-attachments/assets/2816bad9-a7fc-4205-b5e1-82b2fd0ad0af" />
 
-VDD is ramped from 0 V to 2 V during transient simulation.
-VREF starts rising once the startup circuit becomes active.
-Startup completes at approximately 1 µs, meeting the design specification.
+<br>
 
+- VDD is ramped from 0 V to 2 V during transient simulation.
+- VREF starts rising once the startup circuit becomes active.
+- Startup completes at approximately 1 µs, meeting the design specification.
 
+##### 2. Net1 and Net2 Behavior During Startup
 
+Plot: ```plot v(vdd) v(net2) v(net1)```
 
-
-
-Plot: plot v(vdd) v(net2) v(net1)
 
 <img width="500" height="542" alt="Net1 and Net2" src="https://github.com/user-attachments/assets/6d73573d-512f-413d-b69d-6d02074734fd" />
 
+
 After startup:
-Net1 goes high
-Net2 goes low
+- Net1 goes high
+- Net2 goes low
 This confirms correct biasing of the BGR core after startup.
+
 
 Zoomed View Around Startup (~1 µs):
 
+
 <img width="400" height="300" alt="Zoomed Startup" src="https://github.com/user-attachments/assets/d504992a-0c8b-4b7e-9b59-4b731322013b" />
 
-The exact moment of startup completion is clearly visible.
+
+- The exact moment of startup completion is clearly visible.
+
 
   
-3. Voltage Difference Between Net2 and Net6
+##### 3. Voltage Difference Between Net2 and Net6
 
 Plot: plot v(vdd) v(net2) v(net6)
 
-<img width="699" height="537" alt="Net2 vs Net6" src="https://github.com/user-attachments/assets/5326b6d0-03b4-4cf1-81a6-3485cbb7814d" />
+<img width="500" height="537" alt="Net2 vs Net6" src="https://github.com/user-attachments/assets/5326b6d0-03b4-4cf1-81a6-3485cbb7814d" />
 
-Both Net2 and Net6 initially follow VDD.
-A voltage difference gradually develops between Net2 and Net6.
-When the difference exceeds approximately 0.6 V (V<sub>T</sub>), the startup transistor turns ON.
-This triggers current flow and initiates proper circuit startup.
-After stabilization, the voltage difference ensures correct steady-state operation.
+- Both Net2 and Net6 initially follow VDD.
+- A voltage difference gradually develops between Net2 and Net6.
+- When the difference exceeds approximately 0.6 V (V<sub>T</sub>), the startup transistor turns ON.
+- This triggers current flow and initiates proper circuit startup.
+- After stabilization, the voltage difference ensures correct steady-state operation.
 
-4.Plot: Current in the Startup Branch
+##### 4.Current in the Startup Branch
 
 ```plot vid4#branch```
 
@@ -1130,24 +1149,23 @@ After stabilization, the voltage difference ensures correct steady-state operati
 
 ```plot vid5#branch```
 
-<img width="701" height="539" alt="Screenshot 2025-12-18 at 2 12 37 pm" src="https://github.com/user-attachments/assets/4955fb8b-a90c-4450-a066-694b31530330" />
+<img width="500" height="500" alt="Screenshot 2025-12-18 at 2 12 37 pm" src="https://github.com/user-attachments/assets/4955fb8b-a90c-4450-a066-694b31530330" />
 Confirms that post-startup current is minimal.
 
 
-5.Effect of Removing the Startup Circuit
+##### 5.Effect of Removing the Startup Circuit
 
 Modification:
-Commented out the mp6 transistor in the netlist.
-
-
-<img width="702" height="536" alt="Screenshot 2025-12-18 at 2 09 15 pm" src="https://github.com/user-attachments/assets/73626dfe-5dce-46c0-a49f-9b50a317bc80" />
-
+- Commented out the mp6 transistor in the netlist.
+  
 Observed Behavior:
+
 <img width="702" height="536" alt="No Startup Result" src="https://github.com/user-attachments/assets/73626dfe-5dce-46c0-a49f-9b50a317bc80" />
-Net1 remains near ground
-Net2 remains near VDD
-No current flows in the startup path.
-Simulation confirms the circuit fails to start.
+
+- Net1 remains near ground
+- Net2 remains near VDD
+- No current flows in the startup path.
+- Simulation confirms the circuit fails to start.
 
 
 
