@@ -935,7 +935,7 @@ Design and verify a complete CMOS Bandgap Reference (BGR) with startup circuit u
 
 <details><summary><strong>Circuit Architecture and Operation</strong></summary>
 
-Description:
+**Description:**
 
 The BGR uses a self-biased current mirror with a startup circuit. BJTs generate CTAT voltage while the resistor network produces PTAT voltage. Their combination provides a temperature-independent reference. The startup circuit ensures the circuit leaves the zero-current stable state during power-on.
 
@@ -945,7 +945,7 @@ The BGR uses a self-biased current mirror with a startup circuit. BJTs generate 
 <details><summary><strong>Pre-Layout Simulation Setup</strong></summary>
 
 
-Simulations are performed in ngspice using the Sky130 PDK to evaluate functionality, temperature stability, and supply voltage variation.
+Simulations are performed in **ngspice** using the Sky130 PDK to evaluate functionality, temperature stability, and supply voltage variation.
 
 ---
 
@@ -971,10 +971,10 @@ Simulations are performed in ngspice using the Sky130 PDK to evaluate functional
 <br>
 
 
-•	Vmax = 1.109 V
-•	Vmin = 1.105 V
-•	Vnom = 1.107 V
-•	Tmax = 125 °C, Tmin = −40 °C
+- Vmax = 1.109 V
+- Vmin = 1.105 V
+- Vnom = 1.107 V
+- Tmax = 125 °C, Tmin = −40 °C
 
 TC = ((Vmax − Vmin) / (Vnom × (Tmax − Tmin))) × 106 ≈ **22 ppm/°C**
 
@@ -999,9 +999,10 @@ Temperature Coefficient (TC):
 <img width="400" height="393" alt="Screenshot 2025-12-18 at 9 37 22 am" src="https://github.com/user-attachments/assets/dce7bbb2-1c9e-48c0-9c76-403c54ec0967" />
 
 <br>
-•	Vmax = 1.097 V
-•	Vmin = 1.089 V
-•	Vnom = 1.093 V
+
+- Vmax = 1.097 V
+- Vmin = 1.089 V
+- Vnom = 1.093 V
 
 TC = (0.008 / (1.093 × 165)) × 10<sup>6</sup>  
 - **Temperature Coefficient (SS Corner) ≈ 44 ppm/°C**
@@ -1028,9 +1029,11 @@ Temperature Coefficient (TC):
 
 <img width="500" height="394" alt="Screenshot 2025-12-18 at 9 52 43 am" src="https://github.com/user-attachments/assets/3f7e62c8-fc75-4fe7-8b2f-915f45e7d88e" 
 
-•	Vmax = 1.122 V
-•	Vmin = 1.120 V
-•	Vnom = 1.121 V
+<br>
+
+- Vmax = 1.122 V
+- Vmin = 1.120 V
+- Vnom = 1.121 V
 
 - **Temperature Coefficient (FF Corner) ≈ 10.21 ppm/°C**
 
@@ -1052,7 +1055,7 @@ Plots:
 <img width="500" height="500" alt="Screenshot 2025-12-18 at 12 39 10 pm" src="https://github.com/user-attachments/assets/04f1b39a-0b36-4baf-aebe-219532621512" />
 
 <br>
-Observation:
+
 
 
 
