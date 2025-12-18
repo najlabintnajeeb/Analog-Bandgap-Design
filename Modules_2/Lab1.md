@@ -949,18 +949,21 @@ Simulations are performed in **ngspice** using the Sky130 PDK to evaluate functi
 
 ##### 1. TT Corner Simulation
 
-<details><summary><strong>SPICE Netlist</strong></summary>
-
 *File:* `ngspice ./bgr_lvt_rpolyh_3p40.sp`  
 
 
 [Spice NetList ↓](#tt-corner-netlist)
 
-<details><summary<br></summary></details>
-
 
 **Plot:**
+
+
+<img width="698" height="539" alt="Screenshot 2025-12-18 at 12 51 08 pm" src="https://github.com/user-attachments/assets/49f7d6c0-cff9-41c3-adb5-d0d9d63920e4" />
+
 **Temperature Coefficient (TC):**
+
+<img width="398" height="84" alt="Screenshot 2025-12-18 at 12 51 44 pm" src="https://github.com/user-attachments/assets/be2e3ce8-c4f1-4b14-a59e-841b07206521" />
+
 •	Vmax = 1.109 V
 •	Vmin = 1.105 V
 •	Vnom = 1.107 V
@@ -977,16 +980,20 @@ File: ngspice ./bgr_lvt_rpolyh_3p40_ss.sp
 
 
 Plot: ```plot v(vref)```
-
-
+<img width="500" height="542" alt="Screenshot 2025-12-18 at 9 36 19 am" src="https://github.com/user-attachments/assets/469ca645-db0c-47ab-a59b-f1ce3a9c9ee1" />
 
 
 
 Temperature Coefficient (TC):
+<img width="400" height="393" alt="Screenshot 2025-12-18 at 9 37 22 am" src="https://github.com/user-attachments/assets/dce7bbb2-1c9e-48c0-9c76-403c54ec0967" />
+
 •	Vmax = 1.097 V
 •	Vmin = 1.089 V
 •	Vnom = 1.093 V
-TC ≈ 43 ppm/°C
+
+TC = (0.008 / (1.093 × 165)) × 10<sup>6</sup>  
+- **Temperature Coefficient (SS Corner) ≈ 44 ppm/°C**
+
 Observation: Slight deviation due to slow-slow corner; circuit remains functional.
  
 3. FF Corner Simulation
@@ -1001,13 +1008,22 @@ Plot: ``plot v(vref)``
 
 <img width="500" height="541" alt="Screenshot 2025-12-18 at 9 51 58 am" src="https://github.com/user-attachments/assets/9d9dc00d-a4c5-478b-a715-9f3d1ab6672c" />
 
+<img width="500" height="541" alt="Screenshot 2025-12-18 at 9 51 58 am" src="https://github.com/user-attachments/assets/59fc4c94-c818-446d-a33e-48948f65a87e" />
+
+
 <br>
 
 Temperature Coefficient (TC):
+
+<img width="500" height="394" alt="Screenshot 2025-12-18 at 9 52 43 am" src="https://github.com/user-attachments/assets/3f7e62c8-fc75-4fe7-8b2f-915f45e7d88e" 
+
 •	Vmax = 1.122 V
 •	Vmin = 1.120 V
 •	Vnom = 1.121 V
-TC ≈ 10.1 ppm/°C
+
+- **Temperature Coefficient (FF Corner) ≈ 10.21 ppm/°C**
+
+
 
 Observation: Internally compensated, minimal variation, best corner performance.
  
