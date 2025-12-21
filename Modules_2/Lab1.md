@@ -1224,7 +1224,22 @@ File: ``resbank.mag``
 <img width="953" height="630" alt="Screenshot 2025-12-18 at 3 51 48 pm" src="https://github.com/user-attachments/assets/60524d8c-14d5-4fa4-a9d3-7d8b9cb1b1d2" />
 
 
+4. top level
+   top.mag
+
+ magic -T /opt/pdk/sky130A/libs.tech/magic/sky130A.tech -rcfile /opt/pdk/sky130A/libs.tech/magic/sky130A.magicrc
+
+
+
+
+
+   ### LVS
+
+   
+
 ---
+
+
 ---
 
 
