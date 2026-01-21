@@ -265,13 +265,16 @@ Simulation steps:
 
 Objective:
 
-To understand and simulate the Complementary to Absolute Temperature (CTAT) voltage generation circuit as part of the Vizier sub-circuits. CTAT voltage decreases with increasing temperature and is essential for designing PTAT (Proportional to Absolute Temperature) circuits in analog ICs.
+To understand and simulate the Complementary to Absolute Temperature (CTAT) voltage generation circuit as part of the voltage reference sub-circuits. CTAT voltage decreases with increasing temperature and is essential for designing PTAT (Proportional to Absolute Temperature) circuits in analog ICs.
 
 CTAT voltage can be generated using:
 
-Diode (less preferred in modern semiconductor design)
-BJT in diode-connected mode (preferred approach)
+-- Diode (less preferred in modern semiconductor design) 
+
+-- BJT in diode-connected mode (preferred approach)
+
 In this lab, a BJT-based CTAT circuit is used.
+
 
 circuit diagram with expected waveforms:
 <br>
@@ -280,28 +283,35 @@ circuit diagram with expected waveforms:
 
 <br>
 
-Circuit Parameters:
-Constant current source: I₀ = 10 μA
-BJT: Sky113 PDK, 5.5V BJT, emitter area L = W = 3.40 μm → total emitter area 11.56 μm²
-Maximum sustainable current: 100 μA
-Beta (β) of BJT: 30
+**Circuit Parameters:**
+
+- Constant current source: I₀ = 10 μA
+
+- BJT: Sky113 PDK, 5.5V BJT, emitter area L = W = 3.40 μm → total emitter area 11.56 μm²
+
+- Maximum sustainable current: 100 μA
+
+- Beta (β) of BJT: 30
 
 
-Simulation Setup
+**Simulation Setup**
+
 Work Folder: /workspaces/vsd-bandgap/bandgap/prelayout
-BJT Model: QP1 (diode-connected, collector & base grounded, emitter connected to current source)
-Current Source Node: Between emitter of QP1 and ground
-Temperature Sweep: -40°C to 125°C, step of 5°C
-Supply Voltage: Included but not actively used
+
+- BJT Model: QP1 (diode-connected, collector & base grounded, emitter connected to current source)
+- Current Source Node: Between emitter of QP1 and ground
+- Temperature Sweep: -40°C to 125°C, step of 5°C
+- Supply Voltage: Included but not actively used
 
 Location of files : ```/workspaces/vsd-bandgap/bandgap/prelayout```
-Simulation Cases
+
+**Simulation Cases**
 
 ### Case 1: Single BJT, constant current (10 μA)
+
 Objective: Measure the slope of V_CTAT.
 
-File:
-```ctat_voltage_gen.sp```
+File: ```ctat_voltage_gen.sp```
 
 
 **Description:**
@@ -313,8 +323,7 @@ This netlist implements a CTAT (Complementary to Absolute Temperature) voltage g
 
 
 #### Simulation
-Command used:
-```ngspice ./ctat_voltage_gen.sp```
+Command used: ```ngspice ./ctat_voltage_gen.sp```
 
 Observed Error:
 
@@ -349,42 +358,50 @@ Ngspice detects the extra parameters/nodes and raises the "Too many parameters" 
 <img width="400" height="298" alt="Screenshot 2025-12-16 at 9 45 37 am" src="https://github.com/user-attachments/assets/96857298-fca3-49a1-a0ab-4018cb6100f9" />
 
 **Solution Implemented**
+
 Corrected instance in the netlist:
 
 ```xqp1 qp1 qp1 gnd sky130_fd_pr__pnp_05v5_w3p40l3p40```
 
 <img width="400" height="329" alt="Screenshot 2025-12-16 at 9 46 58 am" src="https://github.com/user-attachments/assets/dea2c7ea-1d99-43a8-b07a-3708030a46b4" />
 
+
 **Simulation After Fix**
+
 
 <img width="400" height="329" alt="Screenshot 2025-12-16 at 9 46 58 am" src="https://github.com/user-attachments/assets/f2d4aeb0-185d-4c8d-946e-9feb66f2cb56" />
 
-<img width="400" height="541" alt="Screenshot 2025-12-16 at 10 40 30 am" src="https://github.com/user-attachments/assets/1cc3575a-6747-4e7f-badb-3a6b2bd222b3" />
+
+<img width="500" height="400" alt="Screenshot 2025-12-16 at 10 40 30 am" src="https://github.com/user-attachments/assets/1cc3575a-6747-4e7f-badb-3a6b2bd222b3" />
+
 
 slope value :
 
-<img width="400" height="71" alt="Screenshot 2025-12-16 at 10 41 21 am" src="https://github.com/user-attachments/assets/150ebd2f-2c15-4152-92d0-2ab551cef7a6" />
+
+<img width="500" height="400" alt="Screenshot 2025-12-16 at 10 41 21 am" src="https://github.com/user-attachments/assets/150ebd2f-2c15-4152-92d0-2ab551cef7a6" />
+
 
 Observed slope: **-1.725 mV/°C**
 
+
 Notes: Slightly lower than textbook value of -2 mV/°C due to device-specific characteristics.
+
 
 
 ### Case 2: Multiple BJTs (m=8 units), constant current (10 μA)
 
 Objective: Study effect of transistor multiplication on CTAT voltage.
 
-File:
-```ctat_voltage_gen_mul_bjt.sp```
+
+File: ```ctat_voltage_gen_mul_bjt.sp```
 
 netlist file :
 
-<img width="400" height="323" alt="Screenshot 2025-12-16 at 10 55 30 am" src="https://github.com/user-attachments/assets/9dc3fad4-ab5a-4fba-8c9c-d8bf6ff3b9c1" />
+<img width="500" height="400" alt="Screenshot 2025-12-16 at 10 55 30 am" src="https://github.com/user-attachments/assets/9dc3fad4-ab5a-4fba-8c9c-d8bf6ff3b9c1" />
 
-simulation:
-```ngspice ctat_voltage_gen_mul_bjt.sp```
+simulation: ```ngspice ctat_voltage_gen_mul_bjt.sp```
 
-<img width="400" height="342" alt="Screenshot 2025-12-16 at 11 03 30 am" src="https://github.com/user-attachments/assets/2d57f2d3-5a86-4e8c-9b33-006442fbbbf1" />
+<img width="500" height="400" alt="Screenshot 2025-12-16 at 11 03 30 am" src="https://github.com/user-attachments/assets/2d57f2d3-5a86-4e8c-9b33-006442fbbbf1" />
 
 
 output /slope calculation:
@@ -403,15 +420,15 @@ Notes: Increasing the number of BJTs increases the negative slope, useful for PT
 ### Case 3: Single BJT, variable current (1.25 μA to 10 μA)
 Objective: Study slope variation with current.
 
-File:
-```ctat_voltage_gen_var_current.sp``
+File: ```ctat_voltage_gen_var_current.sp```
 
 netlist file :
+
 <img width="400" height="310" alt="Screenshot 2025-12-16 at 10 56 14 am" src="https://github.com/user-attachments/assets/fc40ad65-94bb-4e6b-938e-06c845c0b4fa" />
 
 
-simulation:
-```ctat_voltage_gen_var_current.sp``
+simulation: ```ctat_voltage_gen_var_current.sp```
+
 <img width="400" height="344" alt="Screenshot 2025-12-16 at 11 15 02 am" src="https://github.com/user-attachments/assets/656c63d5-3212-4bea-9e23-9d7a224a79ab" />
 
 
@@ -421,9 +438,11 @@ output /slope calculation:
 <img width="400" height="400" alt="Screenshot 2025-12-16 at 11 15 19 am" src="https://github.com/user-attachments/assets/2b7f3be8-81de-475a-9756-4102537beb28" />
 
 Slope: 
+
 <img width="400" height="117" alt="Screenshot 2025-12-16 at 11 23 17 am" src="https://github.com/user-attachments/assets/64ff8ed7-78ff-4b8f-ae8e-c09eba97bc3f" />
 
 Observed slope range: -1.894 mV/°C (1.25 μA) to -1.704 mV/°C (10 μA)
+
 Notes: Slope varies with current, highlighting design considerations for PTAT circuits.
 
 
