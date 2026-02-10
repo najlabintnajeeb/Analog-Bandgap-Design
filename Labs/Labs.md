@@ -447,9 +447,9 @@ Notes: Slope varies with current, highlighting design considerations for PTAT ci
 
 
 
-# Lab 4: PTAT Voltage Generation – Pre-layout Simulation
+### Lab 4: PTAT Voltage Generation – Pre-layout Simulation
 
-## Objective
+#### Objective
 To simulate and analyze the **Proportional to Absolute Temperature (PTAT)** voltage generation circuit as part of the Vizier sub-circuits.  
 The PTAT voltage increases with temperature and is generated using CTAT voltage differences across a series of BJTs.
 
