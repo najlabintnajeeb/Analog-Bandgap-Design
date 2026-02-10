@@ -80,7 +80,7 @@ The output voltage of a **Band Gap Reference (BGR)** remains constant over tempe
 
 When a CTAT voltage (negative temperature slope) is added to a scaled PTAT voltage (positive temperature slope), the temperature variations cancel each other, resulting in a **temperature-independent reference voltage**.
 
-<img width="908" height="544" alt="Screenshot 2025-12-15 at 10 44 23 am" src="https://github.com/user-attachments/assets/8e95ff22-a976-4953-bc68-de4ce19f6007" />
+<img width="800" height="544" alt="Screenshot 2025-12-15 at 10 44 23 am" src="https://github.com/user-attachments/assets/8e95ff22-a976-4953-bc68-de4ce19f6007" />
 
 
 ---
@@ -119,7 +119,7 @@ In IC design, a **BJT in diode-connected configuration** is preferred.
 
 Thus, **PNP BJTs are commonly used** to generate CTAT voltages in band gap references.
 
-<img width="1122" height="760" alt="Screenshot 2025-12-15 at 10 27 49 am" src="https://github.com/user-attachments/assets/74473e0b-f2bd-446f-a891-76136e73b471" />
+<img width="800" height="600" alt="Screenshot 2025-12-15 at 10 27 49 am" src="https://github.com/user-attachments/assets/74473e0b-f2bd-446f-a891-76136e73b471" />
 
 ---
 
@@ -147,7 +147,7 @@ Slope Label: Slope = −2mv/dg-cent. (−2mV/∘C). This indicates the rate at w
 
 ## Mathematical Analysis of CTAT Voltage
 
-<img width="1361" height="770" alt="Screenshot 2025-12-15 at 10 31 43 am" src="https://github.com/user-attachments/assets/553d98af-e512-4203-9832-08e1848277d7" />
+<img width="800" height="500" alt="Screenshot 2025-12-15 at 10 31 43 am" src="https://github.com/user-attachments/assets/553d98af-e512-4203-9832-08e1848277d7" />
 
 Where:
 
@@ -282,7 +282,8 @@ Where:
 The result (≈ −1.88 mV/deg K or mV/°C) closely matches the typical CTAT slope and confirms the CTAT behavior.
 These effects are typically verified through simulation and lab measurements.
 
-<img width="800" height="650" alt="Screenshot 2025-12-15 at 10 33 04 am" src="https://github.com/user-attachments/assets/e4dfff80-fb85-4343-af74-1c0dcd34e43c" />
+<img width="806" height="515" alt="image" src="https://github.com/user-attachments/assets/4e13dbae-025b-4e33-b38a-7f1e7bf82878" />
+
 
 
 ---
