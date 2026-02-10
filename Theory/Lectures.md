@@ -9,7 +9,7 @@ In this lecture, the Band Gap Voltage Reference (BGR), including its purpose,wor
 - Typically, the output voltage is around 1.2 V, which corresponds closely to the silicon band gap energy at 0 K.
 - The block diagram of a band gap reference shows a supply connected to VDD and ground, with no additional input, producing a temperature-independent reference voltage.
 
-  <img width="614" height="275" alt="Screenshot 2025-12-15 at 8 31 21 am" src="https://github.com/user-attachments/assets/12d4454e-27dc-4829-b116-db8e929a9ae5" />
+  <img width="500" height="200" alt="Screenshot 2025-12-15 at 8 31 21 am" src="https://github.com/user-attachments/assets/12d4454e-27dc-4829-b116-db8e929a9ae5" />
 
 #### Why Use a Band Gap Voltage Reference?
 Alternative voltage reference options include:
@@ -93,7 +93,7 @@ When a CTAT voltage (negative temperature slope) is added to a scaled PTAT volta
 * **PTAT Voltage:**
   Increases linearly with temperature (positive slope).
 
-<img width="819" height="541" alt="Screenshot 2025-12-15 at 10 44 45 am" src="https://github.com/user-attachments/assets/002a3f8a-fdcc-4c0b-a331-6baaf003bf4f" />
+<img width="400" height="400" alt="Screenshot 2025-12-15 at 10 44 45 am" src="https://github.com/user-attachments/assets/002a3f8a-fdcc-4c0b-a331-6baaf003bf4f" />
 
 
 By proper scaling and summation, the combined voltage becomes nearly constant across temperature.
@@ -119,7 +119,7 @@ In IC design, a **BJT in diode-connected configuration** is preferred.
 
 Thus, **PNP BJTs are commonly used** to generate CTAT voltages in band gap references.
 
-<img width="800" height="600" alt="Screenshot 2025-12-15 at 10 27 49 am" src="https://github.com/user-attachments/assets/74473e0b-f2bd-446f-a891-76136e73b471" />
+<img width="400" height="400" alt="Screenshot 2025-12-15 at 10 27 49 am" src="https://github.com/user-attachments/assets/74473e0b-f2bd-446f-a891-76136e73b471" />
 
 ---
 
@@ -147,7 +147,7 @@ Slope Label: Slope = −2mv/dg-cent. (−2mV/∘C). This indicates the rate at w
 
 ## Mathematical Analysis of CTAT Voltage
 
-<img width="800" height="500" alt="Screenshot 2025-12-15 at 10 31 43 am" src="https://github.com/user-attachments/assets/553d98af-e512-4203-9832-08e1848277d7" />
+<img width="400" height="400" alt="Screenshot 2025-12-15 at 10 31 43 am" src="https://github.com/user-attachments/assets/553d98af-e512-4203-9832-08e1848277d7" />
 
 Where:
 
@@ -282,7 +282,7 @@ Where:
 The result (≈ −1.88 mV/deg K or mV/°C) closely matches the typical CTAT slope and confirms the CTAT behavior.
 These effects are typically verified through simulation and lab measurements.
 
-<img width="806" height="515" alt="image" src="https://github.com/user-attachments/assets/4e13dbae-025b-4e33-b38a-7f1e7bf82878" />
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/4e13dbae-025b-4e33-b38a-7f1e7bf82878" />
 
 
 
